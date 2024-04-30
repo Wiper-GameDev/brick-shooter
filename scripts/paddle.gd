@@ -15,5 +15,7 @@ func _physics_process(delta):
 		if mouse_pos.x != last_mouse_position:
 			last_mouse_position = mouse_pos.x
 			move_and_collide(Vector2(mouse_pos.x - position.x, 0))
+			#position += (Vector2(mouse_pos.x - position.x, 0))
 	else:
 		move_and_collide(Vector2(SPEED * delta * direction, 0))
+		#position = (Vector2(SPEED * delta * direction, 0))

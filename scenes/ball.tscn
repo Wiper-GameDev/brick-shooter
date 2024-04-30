@@ -1,13 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkvwme6wtfhvm"]
+[gd_scene load_steps=4 format=3 uid="uid://bkvwme6wtfhvm"]
 
 [ext_resource type="Script" path="res://scripts/Ball.gd" id="1_kcjb2"]
-[ext_resource type="Shader" path="res://shaders/chroma-key.gdshader" id="2_6uudw"]
-[ext_resource type="Texture2D" uid="uid://bdoxw51pwgtin" path="res://assets/sprites/paddle-and-balls.png" id="3_h8rpv"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_civv4"]
-shader = ExtResource("2_6uudw")
-shader_parameter/chroma_key = Color(0.054902, 0.0509804, 0.0509804, 1)
-shader_parameter/intensity = 0.402
+[ext_resource type="Texture2D" uid="uid://03m7wmhikpil" path="res://assets/sprites/Ellipse 1.svg" id="4_aeb0k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cnrbv"]
 radius = 4.08127
@@ -15,18 +9,19 @@ radius = 4.08127
 [node name="Ball" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
+safe_margin = 0.001
 script = ExtResource("1_kcjb2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_civv4")
-texture = ExtResource("3_h8rpv")
-region_enabled = true
-region_rect = Rect2(1, 12, 8, 8)
+[node name="Ellipse1" type="Sprite2D" parent="."]
+position = Vector2(-0.0247707, 0.0427542)
+scale = Vector2(0.186047, 0.186047)
+texture = ExtResource("4_aeb0k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_cnrbv")
 
 [node name="Area2D" type="Area2D" parent="."]
+texture_filter = 1
 collision_layer = 2
 collision_mask = 4
 
